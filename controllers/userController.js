@@ -1,15 +1,20 @@
 import userModel from "../models/userModel.js"
+import * as userService from "../services/userServices.js"
 import bcrypt from "bcrypt"
 
 const registrationForm = (req, res) => {
-    res.render("register")
+    res.render("auth/register")
 }
 
 const register = async (req, res) => {
-    const hashedpwd = await bcrypt.hash(req.body.password, 10)
-    req.body.password = hashedpwd
-    const user = await userModel.create(req.body)
-    res.redirect("/auth/login")
+    const user = await userService.createUser(req.body)
+    res.redirect("/users/login")
+
+    // const hashedpwd = await bcrypt.hash(req.body.password, 10)
+    // req.body.password = hashedpwd
+    // const user = await userModel.create(req.body)
+
+    // res.redirect("/auth/login")
 }
 
 const loginForm = (req, res) => {
@@ -36,4 +41,10 @@ const login = async (req, res) => {
     }
 }
 
-export { login, loginForm, register, registrationForm }
+const logout = (req, res) => {
+    req.session.destroy()
+    res.locals.user = null
+    res.redirect("/users/login")
+}
+
+export { login, loginForm, register, registrationForm, logout }
