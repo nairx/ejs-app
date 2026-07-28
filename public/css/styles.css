@@ -1,0 +1,70 @@
+/* Navigation Bar */
+
+body{
+    margin:0px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
+  padding: 1px;
+}
+
+.navbar {
+  /* background: #333; */
+  display: flex;
+  align-items: center;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 5px;
+}
+.navbar a {
+  /* color: white; */
+  text-decoration: none;
+  /* padding: 15px 20px; */
+  display: block;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  cursor: pointer;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 100px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Dropdown Links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #f2f2f2;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Hover Effect */
+.navbar a:hover {
+  background: #555;
+}

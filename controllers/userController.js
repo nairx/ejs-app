@@ -6,6 +6,11 @@ const registrationForm = (req, res) => {
     res.render("auth/register")
 }
 
+const showUsers = async (req, res) => {
+    const users = await userService.showUsers()
+    res.render("users/list", { users })
+}
+
 const register = async (req, res) => {
     const user = await userService.createUser(req.body)
     res.redirect("/users/login")
@@ -47,4 +52,27 @@ const logout = (req, res) => {
     res.redirect("/users/login")
 }
 
-export { login, loginForm, register, registrationForm, logout }
+const deleteUser = async (req, res) => {
+    const id = req.params.id
+    const user = await userService.deleteUser(id)
+    res.redirect("/users")
+}
+
+const createUser = async (req, res) => {
+    const user = await userService.createUser(req.body)
+    res.redirect("/users")
+}
+
+const getUser = async (req, res) => {
+    const id = req.params.id
+    const user = await userService.getUser(id)
+    res.render("users/edit",{user})
+}
+
+const saveUser = async (req, res) => {
+    const id = req.params.id
+    const user = await userService.saveUser(id,req.body)
+    res.redirect("/users")
+}
+
+export { login, loginForm, register, registrationForm, logout, showUsers,deleteUser,createUser,getUser,saveUser }

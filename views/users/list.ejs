@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>User Management</h3>
+
+   <form action="/users/create" method="POST">
+
+    <p>
+        <input type="text" placeholder="Name" name="name">
+        <input type="text" placeholder="Email" name="email">
+        <input type="password" placeholder="Password" name="password">
+        <input type="text" placeholder="Role" name="role">
+        <button>Add</button>
+    </p>
+
+   </form>
+<ol>
+    <% users.forEach(user=> { %>
+
+        <li><a href="/users/update/<%= user._id%>"><%= user.name %></a> - <%= user.email %> - <%= user.role %> - <a href="/users/delete/<%= user._id %>">Delete</a></li>
+
+    <% }) %>
+    </ol>
+</body>
+</html>

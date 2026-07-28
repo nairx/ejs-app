@@ -3,26 +3,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Application<%= typeof pageTitle !== 'undefined' ? pageTitle : "" %></title>
+    <link rel="stylesheet" href="/css/styles.css">
 </title>
   </head>
   <body>
-    <h1 style="background-color: orange">My Application</h1>
-    <a href="/">Home</a>|<a href="/services">Services</a>|<a href="/contact"
-      >Contact</a>|
+
+<div class="header">
+
+    <h1>MyStore</h1>
+
+<div class="navbar">
+
+    <li><a href="/">Home</a></li>
+     <li></li><a href="/services">Services</a></li>
+     <li></li><a href="/contact">Contact</a></li>
  
 
 <% if (user?.role === "admin") { %>
 
- <a href="/admin">Admin</a>|
+
+<li class="dropdown">
+        <a href="#" class="dropbtn">Admin ▼</a>
+
+        <div class="dropdown-content">
+            <a href="/users">Users</a>
+            <a href="/products">Products</a>
+
+        </div>
+    </li>
+
+
   <% } %>
      <% if (!user) {  %>
 
-      <a href="/users/login">Login</a>
+       <li></li><a href="/users/login">Login</a></li>
 <% } else { %>
 
-  <a href="/users/logout">Logout</a>
+   <li></li><a href="/users/logout">Logout</a></li>
   <% } %>
+  </div>
+  </div>
+<div style="padding: 5px;">
     <%- body %>
+
+    </div>
+
     <h3>Footer</h3>
   </body>
 </html>

@@ -6,5 +6,18 @@ const createUser = async (userData) => {
     userData.password = hashedpwd
     return await userModel.create(userData)
 }
+const showUsers = async () => {
+    return await userModel.find()
+}
 
-export { createUser }
+const deleteUser = async (id) => {
+    return await userModel.findByIdAndDelete(id)
+}
+const getUser = async (id) => {
+    return await userModel.findOne({ _id: id })
+}
+
+const saveUser = async (id, userData) => {
+    return await userModel.findByIdAndUpdate(id, userData)
+}
+export { createUser, showUsers, deleteUser, getUser,saveUser }

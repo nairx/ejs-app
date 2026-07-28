@@ -1,5 +1,6 @@
 import express from "express"
 import userRouter from "./routes/userRoutes.js"
+import productRouter from "./routes/productRoutes.js"
 import expressLayouts from "express-ejs-layouts"
 import { authenticate, authorize } from "./middleware/auth.js"
 import session from "express-session"
@@ -27,10 +28,11 @@ app.use((req, res, next) => {
 })
 
 
-app.get("/", (req, res) => {
-    res.render("index")
-})
+// app.get("/", (req, res) => {
+//     res.render("index")
+// })
+app.use("/",productRouter)
 app.use("/users", userRouter)
-app.use("/products",productRouter)
+
 
 export default app

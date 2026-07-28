@@ -1,15 +1,25 @@
 import express from "express"
-import { login, loginForm, register, registrationForm,logout } from "../controllers/userController.js"
+import * as userController from "../controllers/userController.js"
 
 const Router = express.Router()
 
-Router.get("/login", loginForm)
+Router.get("/login", userController.loginForm)
 
-Router.post("/login", login)
+Router.post("/login", userController.login)
 
-Router.get("/logout",logout)
+Router.get("/logout", userController.logout)
 
-Router.get("/register", registrationForm)
-Router.post("/register", register)
+Router.get("/register", userController.registrationForm)
+Router.post("/register",userController.register)
+
+Router.post("/create",userController.createUser)
+
+Router.post("/save/:id",userController.saveUser)
+
+Router.get("/update/:id",userController.getUser)
+
+Router.get("/", userController.showUsers)
+
+Router.get("/delete/:id", userController.deleteUser)
 
 export default Router
