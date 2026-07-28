@@ -1,7 +1,7 @@
 import express from "express"
 import userRouter from "./routes/userRoutes.js"
 import expressLayouts from "express-ejs-layouts"
-import { authenticate,authorize } from "./middleware/auth.js"
+import { authenticate, authorize } from "./middleware/auth.js"
 import session from "express-session"
 
 const app = express()
@@ -12,6 +12,8 @@ app.set("view engine", "ejs")
 app.set("layout", "layout")
 
 app.use(express.urlencoded({ extended: true }))
+
+app.use(express.static("public"))
 
 app.use(session({
     secret: "mysecretkey",
@@ -29,5 +31,6 @@ app.get("/", (req, res) => {
     res.render("index")
 })
 app.use("/users", userRouter)
+app.use("/products",productRouter)
 
 export default app
