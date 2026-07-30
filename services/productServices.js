@@ -8,5 +8,17 @@ const displayProducts = async () => {
     return await productModel.find()
 }
 
+const deleteProduct = async (id) => {
+    return await productModel.findByIdAndDelete(id)
+}
 
-export { createProduct, displayProducts }
+const getProduct = async (id) => {
+    return await productModel.findOne({ _id: id })
+}
+
+const saveProduct = async (id,body) => {
+    return await productModel.findByIdAndUpdate(id,body)
+}
+
+
+export { createProduct, displayProducts, deleteProduct,getProduct,saveProduct }

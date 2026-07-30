@@ -5,6 +5,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Home Page</h1>
+    <div class="row">
+         <% products.forEach(product => { %>
+        <div>
+           <img src="<%= product.imageUrl %>" width="300px" />
+
+           <a href="/products/details/<%= product._id %>">
+           <h3><%= product.name %></h3>
+           </a>
+
+           <p><%= product.description %></p>
+           <h4><%= product.price %></h4>
+        </div>
+        <% }) %>
+    </div>
 </body>
 </html>
