@@ -42,7 +42,7 @@ const login = async (req, res) => {
         }
     }
     else {
-        res.render("login", { error: "User not found" })
+        res.render("auth/login", { error: "User not found" })
     }
 }
 
