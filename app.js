@@ -10,6 +10,7 @@ const app = express()
 app.use(expressLayouts)
 
 app.set("view engine", "ejs")
+app.set("views", path.join(__dirname, "views"));
 app.set("layout", "layout")
 
 app.use(express.urlencoded({ extended: true }))
