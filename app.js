@@ -4,13 +4,14 @@ import productRouter from "./routes/productRoutes.js"
 import expressLayouts from "express-ejs-layouts"
 import { authenticate, authorize } from "./middleware/auth.js"
 import session from "express-session"
+import path from "path"
 
 const app = express()
 
 app.use(expressLayouts)
 
 app.set("view engine", "ejs")
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(import.meta.dirname, "views"));
 app.set("layout", "layout")
 
 app.use(express.urlencoded({ extended: true }))
