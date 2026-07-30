@@ -3,7 +3,7 @@ import * as productService from "../services/productServices.js"
 
 const homePage = async (req,res) => {
      const products = await productService.displayProducts()
-    res.render("index",{products})
+    res.render("products/index",{products})
 }
 
 const createProduct = async (req,res) => {
@@ -39,7 +39,7 @@ const saveProduct = async (req,res) => {
 const productDetails = async (req,res) => {
     const id = req.params.id
     const product = await productService.getProduct(id)
-    res.render("details",{product})
+    res.render("products/details",{product})
 }
 
 export {createProduct,displayProducts,homePage,deleteProduct,updateForm,saveProduct,productDetails}

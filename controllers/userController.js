@@ -3,7 +3,7 @@ import * as userService from "../services/userServices.js"
 import bcrypt from "bcrypt"
 
 const registrationForm = (req, res) => {
-    res.render("auth/register")
+    res.render("users/register")
 }
 
 const showUsers = async (req, res) => {
@@ -23,7 +23,7 @@ const register = async (req, res) => {
 }
 
 const loginForm = (req, res) => {
-    res.render("auth/login", { error: null })
+    res.render("users/login", { error: null })
 }
 
 const login = async (req, res) => {
@@ -42,7 +42,7 @@ const login = async (req, res) => {
         }
     }
     else {
-        res.render("auth/login", { error: "User not found" })
+        res.render("users/login", { error: "User not found" })
     }
 }
 
