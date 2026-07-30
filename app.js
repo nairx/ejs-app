@@ -29,11 +29,24 @@ app.use((req, res, next) => {
 })
 
 
+
 // app.get("/", (req, res) => {
 //     res.render("index")
 // })
-app.use("/",productRouter)
+app.use("/", productRouter)
 app.use("/users", userRouter)
+
+
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    console.error(err.stack);
+    res.status(statusCode);
+    res.render("error", {
+        title: "Error",
+        statusCode,
+        message: err.message || "Internal Server Error"
+    });
+})
 
 
 export default app
