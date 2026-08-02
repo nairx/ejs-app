@@ -5,6 +5,6 @@ const productSchema = mongoose.Schema({
     price: { type: Number },
     description: { type: String },
     imageUrl: { type: String }
-})
+}, { timestamps: true })
 
 export default mongoose.model("Product",productSchema)

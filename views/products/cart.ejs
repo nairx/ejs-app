@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>My Cart</h3>
+
+   <% if (cart.length > 0) { %>
+
+    <table cellpadding="10">
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+        </tr>
+    <% cart.forEach(item => { %>
+    <tr>
+        <td>
+<%= item.name %> 
+        </td style="text-align: right;">
+        <td>
+<%= item.quantity %>
+        </td>
+        <td style="text-align: right;">
+            <%= item.price %>
+        </td>
+        <td  style="text-align: right;">
+            <%= item.price * item.quantity %>
+        </td>
+    </tr>
+        
+        
+        
+
+    <% }) %>
+    
+    </table>
+    <form action="/orders/createorder" method="POST">
+        <p>
+            Order Value: <input type="text" value="<%= orderValue %>" name="orderValue" style="border:none" readonly>
+        </p>
+<button>Buy Now</button>
+    </form>
+    
+    <% } else { %>
+<p>You have no items in your cart.</p>
+    <% } %>
+</body>
+</html>

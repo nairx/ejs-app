@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>My Orders</h3>
+    <table cellpadding="10">
+        <tr>
+             <td>Order Number</td>
+            <td>Order Date</td>
+            <td>Total Items</td>
+            <td>Order Value</td>
+            <td>Status</td>
+
+        </tr>
+
+    <% myorder.forEach(order => { %>
+<tr>
+    <td><%= order._id %></td>
+     <td style="text-align: right"><%= order.createdAt.toLocaleString() %></td>
+           <td style="text-align: right"><%= order.items.length %></td>
+            <td style="text-align: right"><%= order.orderValue %></td>
+           <td><%= order.status %></td>
+</tr>
+    <% }) %>
+</table>
+</body>
+</html>

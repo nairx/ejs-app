@@ -10,13 +10,13 @@
 
 <div class="header">
 
-    <h1>MyStore</h1>
+    <h1>MyStore-ejs</h1>
 
 <div class="navbar">
 
     <li><a href="/">Home</a></li>
-     <li></li><a href="/services">Services</a></li>
-     <li></li><a href="/contact">Contact</a></li>
+     <li></li><a href="/products/cart">Cart</a></li>
+     <li></li><a href="/orders/myorder">Order</a></li>
  
 
 <% if (user?.role === "admin") { %>
@@ -47,7 +47,7 @@
     <%- body %>
 
     </div>
-
-    <h3>Footer</h3>
+<hr>
+    <h4>&copy; Copyright 2026. All rights reserved.</h4>
   </body>
 </html>

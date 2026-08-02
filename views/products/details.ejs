@@ -1,13 +1,31 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <img src="<%= product.imageUrl %>" alt="">
-
-    <button>Add to Cart</button>
-
-</body>
+  </head>
+  <body>
+    <div class="row">
+      <div>
+        <img src="<%= product.imageUrl %>" width="300px" alt="" />
+      </div>
+      <div>
+        <h1><%= product.name %></h1>
+        <p><%= product.description %></p>
+        <h3><%= product.price %></h3>
+        <form action="/products/cart/<%= product._id %>" method="POST">
+          <p>
+            <select name="quantity">
+              <option value="1">Quantity: 1</option>
+              <option value="2">Quantity: 2</option>
+              <option value="3">Quantity: 3</option>
+            </select>
+          </p>
+          <p>
+            <button>Add to Cart</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

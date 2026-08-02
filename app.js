@@ -1,6 +1,7 @@
 import express from "express"
 import userRouter from "./routes/userRoutes.js"
 import productRouter from "./routes/productRoutes.js"
+import orderRouter from "./routes/orderRoutes.js"
 import expressLayouts from "express-ejs-layouts"
 import { authenticate, authorize } from "./middleware/auth.js"
 import session from "express-session"
@@ -24,7 +25,11 @@ app.use(session({
 }))
 
 app.use((req, res, next) => {
+    if (!req.session.cart) {
+        req.session.cart = [];
+    }
     res.locals.user = req.session.user
+    res.locals.cart = req.session.cart
     next()
 })
 
@@ -35,6 +40,7 @@ app.use((req, res, next) => {
 // })
 app.use("/", productRouter)
 app.use("/users", userRouter)
+app.use("/orders", orderRouter)
 
 
 app.use((err, req, res, next) => {

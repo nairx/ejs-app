@@ -20,5 +20,10 @@ const saveProduct = async (id,body) => {
     return await productModel.findByIdAndUpdate(id,body)
 }
 
+const addToCart = async (id,body) => {
+    const product = await productModel.findOne({_id:id})
+    return  await {...product.toObject(),quantity:body.quantity}
+}
 
-export { createProduct, displayProducts, deleteProduct,getProduct,saveProduct }
+
+export { createProduct, displayProducts, deleteProduct,getProduct,saveProduct,addToCart }

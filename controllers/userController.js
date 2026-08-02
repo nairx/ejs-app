@@ -33,11 +33,13 @@ const login = async (req, res) => {
         const chkPwd = await bcrypt.compare(password, found.password)
         if (chkPwd) {
             const user = {
+                id:found._id,
                 name: found.name,
                 email: found.email,
                 role: found.role
             }
             req.session.user = user
+            // console.log(req.session.user)
             res.redirect("/")
         }
     }
