@@ -19,4 +19,8 @@ const myOrder = async (userId) => {
     return await myorder
 }
 
-export { createOrder, myOrder }
+const orders = async () => {
+    return await orderModel.find()
+}
+
+export { createOrder, myOrder,orders }

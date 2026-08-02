@@ -23,4 +23,9 @@ const myOrder = async (req, res) => {
 
 }
 
-export { createOrder, myOrder }
+const orders = async (req,res) => {
+    const orders = await orderService.orders()
+    res.render("orders/orders",{orders})
+}
+
+export { createOrder, myOrder,orders }
