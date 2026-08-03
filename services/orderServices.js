@@ -7,20 +7,20 @@ const createOrder = async (id, orderData) => {
     const order = {
         orderValue: orderValue,
         items: orderData,
-        userId: id
+        user: id
     }
     
     return await orderModel.create(order)
 }
 
 const myOrder = async (userId) => {
-    const myorder = await orderModel.find({ userId }).populate("userId")
+    const myorder = await orderModel.find({ user:userId }).populate("user")
     // console.log(myorder)
     return await myorder
 }
 
 const orders = async () => {
-    return await orderModel.find()
+    return await orderModel.find().populate("user")
 }
 
 export { createOrder, myOrder,orders }

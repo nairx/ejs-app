@@ -25,6 +25,7 @@ const myOrder = async (req, res) => {
 
 const orders = async (req,res) => {
     const orders = await orderService.orders()
+    console.log(orders)
     res.render("orders/orders",{orders})
 }
 

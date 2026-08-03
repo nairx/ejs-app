@@ -6,6 +6,24 @@
 </head>
 <body>
     <h3>Order Management</h3>
+    <table cellpadding="5">
+    <tr>
+        <td>Date</td>
+        <td>Customer Name</td>
+        <td>Items</td>
+        <td>OrderValue</td>
+        <td>Status</td>
+    </tr>
+    <% orders.forEach(order => { %>
+    <tr>
+        <td><%= order.createdAt.toLocaleString() %></td>
+        <td><%= order.user.name %></td>
+        <td style="text-align: right"><%= order.items.length %></td>
+        <td style="text-align: right"><%= order.orderValue %></td>
+        <td><%= order.status %></td>
+    </tr>
     
+    <% }) %>
+    </table>
 </body>
 </html>
