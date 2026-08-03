@@ -8,7 +8,8 @@
     <h3>Order Management</h3>
     <table cellpadding="5">
     <tr>
-        <td>Date</td>
+        <td>Order Date</td>
+         <td>Order Number</td>
         <td>Customer Name</td>
         <td>Items</td>
         <td>OrderValue</td>
@@ -17,6 +18,7 @@
     <% orders.forEach(order => { %>
     <tr>
         <td><%= order.createdAt.toLocaleString() %></td>
+        <td><%= order._id %></td>
         <td><%= order.user.name %></td>
         <td style="text-align: right"><%= order.items.length %></td>
         <td style="text-align: right"><%= order.orderValue %></td>
